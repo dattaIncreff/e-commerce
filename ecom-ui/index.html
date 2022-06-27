@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Increff-Fashion login</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="-1"/>
+  <meta http-equiv="cache-control" content="no-cache"/>
+  <link rel="icon" href="https://storage.googleapis.com/www.increff.com/img/favicon.png?v=2" type="image/x-icon"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style/indexStyle.css">
+</head>
+
+<body class="body">
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/increff-logo-2.png" height="26px" href="/" class="increff-navbar-logo">
+      </a>
+    </div>
+  </nav>
+
+  <div class="container-fluid sign-in-container" style="display: none">
+    <div class="row justify-content-center p-3 p-sm-3 p-md-0" >
+      <div class="col-md-2 col-lg-1 mb-4 mb-md-0 d-flex align-items-center justify-content-center increff-logo-sign-in bg-danger">
+        <img src="/assets/images/increff-logo-white.png" class="img-fluid pt-2 pb-2" style="max-height: 100px;"/>
+      </div>
+      <div class="col-md-6 col-lg-4" >
+        <h1 class="sign-in">Sign-In</h1>
+        <form onsubmit="signIn(); return false;">
+          <input id="email" class="form-control mb-3" type="email" placeholder="Email" data-toggle="tooltip" data-placement="bottom" title=""/>
+          <div class="input-group" id="show_hide_password">
+            <input id="pass" class="form-control mb-3" type="password" placeholder="Password" data-toggle="tooltip" data-placement="top" title="" />
+            <div class="input-group-addon h-50 d-flex align-items-center justify-content-center rounded-end">
+              <a onclick="eye()" href="#" id="eye" class="btn btn-dark bi bg-dark bi-eye mb-3 p-2 ps-3 pe-3 rounded-0 rounded-end text-white"></a>
+            </div>
+          </div>
+          <input type="submit" class="btn btn-dark form-control submit-btn" value='Submit'/>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid already-logged-in-container" style="display: none">
+    <div class="row justify-content-center p-3 p-sm-3 p-md-0" >
+      <div class="col-md-2 col-lg-1 mb-4 mb-md-0 d-flex align-items-center justify-content-center increff-logo-sign-in bg-danger">
+        <img src="/assets/images/increff-logo-white.png" class="img-fluid pt-2 pb-2" style="max-height: 100px;"/>
+      </div>
+      <div class="col-md-6 col-lg-4 justify-content-center" >
+        <h1 class="sign-in">Already signed-in!</h1>
+        <div class="mt-3"> Oops! It seems like you're already logged-in. You can go to the home page again and continue with your shopping or log-out.</div>
+        
+        <div class="mt-4 row">
+          <div class="col">
+            <button onclick="home()" class="btn btn-dark p-4 pt-2 pb-2 form-control"><i class="bi bi-house"></i> &nbsp Home</button> 
+          </div>
+          <div class="col">
+            <button onclick="logout()" class="btn btn-danger p-4 pt-2 pb-2 form-control"><i class="bi bi-box-arrow-right"></i> &nbsp Log-out</button>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center bg-danger text-white">
+          <div class="modal-title">
+            <h4>Oops!</h4>
+          </div>
+        </div>
+        <div class="modal-body text-center">
+          <p class="modalFont p-3">Users JSON file not found.</p>
+        </div>
+      </div>
+    </div>
+  </div>     
+
+  
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/indexScript.js"></script>  
+</body>
+
+</html>

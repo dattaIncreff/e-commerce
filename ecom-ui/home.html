@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Increff-Fashion Home</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="-1"/>
+  <meta http-equiv="cache-control" content="no-cache"/>
+  <link rel="icon" href="https://storage.googleapis.com/www.increff.com/img/favicon.png?v=2" type="image/x-icon"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style/homeStyle.css">
+</head>
+
+<body class="body">
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/increff-logo-2.png" height="26px" href="/" class="increff-navbar-logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+        <i class="bi bi-list text-white"></i>
+      </button>
+
+
+      <div class="justify-content-end collapse navbar-collapse mt-3 mt-md-0" id="navbarSupportedContent">
+        <div class="navbar-nav">
+          <div class="nav-item">
+            <div class="d-flex justify-content-end me-0 me-md-2">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </div>
+          </div>
+          <div class="nav-item">
+            <div class="d-flex justify-content-end mt-2 mt-md-0">
+              <button id='nav-cart-btn' class="btn btn-danger rounded-0 border-end" title="cart" style="display: none;"><i class="bi bi-cart-fill text-white"></i></button>
+              <button id='nav-upload-btn' class="btn btn-danger rounded-0 border-end" title="upload order" style="display: none;"><i class="bi bi-upload text-white"></i></button>
+              <button id="nav-profile-btn" class="btn btn-danger rounded-0 border-end" title="profile" style="display: none;"><i class="bi bi-person-circle text-white"></i></button>
+              <button onclick="login()" id='nav-login-btn' class="btn btn-danger rounded-0" title="login" style="display: none;"><i class="bi bi-box-arrow-in-right text-white"></i></button>
+              <button onclick="logout()" id='nav-logout-btn' class="btn btn-danger rounded-0" title="logout" style="display: none;"><i class="bi bi-box-arrow-right text-white"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row border-top">
+      
+      <!-- FILTERS -->
+      <div class="filters col-2 shadow p-0 bg-dark text-white" style="min-width: 160px; max-width: 220px; min-height: 100vh;">
+        <div class="p-2 bg-danger"><b>FILTERS</b></div>
+        <hr class="mt-0">
+        
+        <div class="filters-category">
+          <div class="p-2 ">
+            <h5 class="filters-title pb-2"><b>Category</b></h5>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" onclick="categoryHandler(this)" id="radio1" name="optradio" value="Men">Men
+              <label class="form-check-label" for="radio1"></label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" onclick="categoryHandler(this)" id="radio2" name="optradio" value="Women">Women
+              <label class="form-check-label" for="radio2"></label>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="filters-price">
+          <div class="p-2">
+            <h5 class="filters-title pb-2"><b>Price</b></h5>
+            <label class="form-label">Max price : <span id="price"></span> </label>
+            <input type="range" min="250" max="25000" oninput="priceHandler()" class="form-range text-danger" id="priceSlider">
+          </div>
+        </div>
+        <hr>
+
+        <div class="filters-rating">
+          <div class="p-2">
+            <h5 class="filters-title pb-2"><b>Ratings</b></h5>
+            <label class="form-label">Min Rating : <span id="rating"></span> </label>
+            <div class="rating">
+              <input type="radio" name="rating" value="5" id="5" onclick="ratingHandler(5)"><label for="5">☆</label>
+              <input type="radio" name="rating" value="4" id="4" onclick="ratingHandler(4)"><label for="4">☆</label>
+              <input type="radio" name="rating" value="3" id="3" onclick="ratingHandler(3)"><label for="3">☆</label>
+              <input type="radio" name="rating" value="2" id="2" onclick="ratingHandler(2)"><label for="2">☆</label>
+              <input type="radio" name="rating" value="1" id="1" onclick="ratingHandler(1)"><label for="1">☆</label>
+            </div>           
+          </div>
+        </div>
+        <hr>
+      </div>
+      
+      <!-- HOME SCREEN -->
+      <div class="col p-0 ">
+        
+        <!-- APPLIED FILTERS, SORT BY -->
+        <div class="row shadow-sm border-bottom p-2 applied-filters"> 
+          <div class="text-end">
+            <div class="btn-group">
+              <button type="button" id='sortby' class="btn btn-outline-danger dropdown-toggle p-5 pt-1 pb-1" data-bs-toggle="dropdown" aria-expanded="false"> Sort by </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Price (Ascending)</a></li>
+                <li><a class="dropdown-item" href="#">Price (Descending)</a></li>
+                <li><a class="dropdown-item" href="#">Rating</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-start applied-filters-list"></div>
+        </div>
+        
+        <!-- INVENTORY -->
+        <div class="row inventory p-4">
+
+          <div id="carouselExampleIndicators" class="carousel slide col-6 col-sm-4 col-md-3 col-lg-2" data-bs-ride="carousel" >
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="2000">
+                <img src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2019/6/13/1ce40c79-d376-44bf-bc6e-37fd418dc0d31560423441364-1.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2019/6/13/a77d1749-6329-4571-9ea8-df64e277662c1560423441391-2.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2019/6/13/cdde9da0-a1ad-4e08-b97b-170088ec2bc71560423441431-3.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row footer p-3 pb-0 text-white text-center justify-content-center bg-dark border-top " >
+      <h5>Increff - Fashion</h5>
+      <footer class="blockquote-footer"> A subsidiary of Increff</footer>
+    </div>
+
+  </div>
+  
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center bg-danger text-white">
+          <div class="modal-title">
+            <h4>Oops!</h4>
+          </div>
+        </div>
+        <div class="modal-body text-center">
+          <p class="modalFont p-3">Inventory JSON file not found.</p>
+        </div>
+      </div>
+    </div>
+  </div>     
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/homeScript.js"></script>  
+</body>
+
+</html>

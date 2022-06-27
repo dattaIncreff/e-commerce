@@ -1,0 +1,36 @@
+
+*{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+  
+.rating > input{ display:none;}
+  
+.rating > label {
+    position: relative;
+    width: 26px;
+    font-size: 26px;
+    color: #ffd500;
+    cursor: pointer;
+}
+.rating > label::before{ 
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+    opacity: 1 !important;
+}
+  
+.rating > input:checked ~ label:before{
+    opacity:1;
+}
+  
+.rating:hover > input:checked ~ label:before{ opacity: 0.4;}

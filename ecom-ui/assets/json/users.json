@@ -1,0 +1,23 @@
+[
+    {
+        "userID":1,
+        "email":"user1@gmail.com",
+        "pass":"user1",
+        "cart": ["item1", "item2", "item3"],
+        "past-orders": []
+    },    
+    {
+        "userID":2,
+        "email":"user2@gmail.com",
+        "pass":"user2",
+        "cart": [],
+        "past-orders": []
+    },    
+    {
+        "userID":3,
+        "email":"user3@gmail.com",
+        "pass":"user3",
+        "cart":[],
+        "past-orders": []
+    }
+]
